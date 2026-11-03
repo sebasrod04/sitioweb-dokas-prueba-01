@@ -1,0 +1,4 @@
+import {useState} from 'react';
+import {ArrowUpRight,Menu,X} from 'lucide-react';
+const nav=[['Servicios','#servicios'],['Enfoque','#enfoque'],['Proyectos','#proyectos'],['Contacto','#contacto']];
+export function Header(){const[open,setOpen]=useState(false);return <header className="site-header"><div className="container nav-inner"><a href="#inicio" className="brand" aria-label="Dokas Agency, inicio">dokas<span className="brand-dot">.</span><span className="brand-light">agency</span><span className="brand-code"> &lt;/&gt;</span></a><nav className={open?'nav-links open':'nav-links'} aria-label="Navegación principal">{nav.map(([name,url])=><a key={url} href={url} onClick={()=>setOpen(false)}>{name}</a>)}</nav><a className="nav-cta" href="#contacto">Hablemos <ArrowUpRight size={16}/></a><button className="mobile-toggle" aria-label={open?'Cerrar menú':'Abrir menú'} aria-expanded={open} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></div></header>}
